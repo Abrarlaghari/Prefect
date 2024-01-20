@@ -1,0 +1,58 @@
+###
+### A complete description of a Prefect Deployment for flow 'testFlow2'
+###
+name: containerized-flow
+description: null
+version: 6b568e9007cd5abc11325159a7fb1102
+# The work queue that will handle this deployment's runs
+work_queue_name: test
+tags: []
+parameters: {}
+schedule: null
+infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: testFlow2
+manifest_path: null
+infrastructure:
+  type: docker-container
+  env:
+    EXTRA_PIP_PACKAGES: 'pysftp==0.2.8 polars pandas duckdb minio matplotlib beautifulsoup4
+      numpy fastparquet pyarrow tqdm hl7 '
+  labels: {}
+  name: null
+  command:
+  - python
+  - -m
+  - prefect.engine
+  image: prefecthq/prefect:2.3.2-python3.9
+  image_pull_policy: null
+  image_registry: null
+  networks: []
+  network_mode: null
+  auto_remove: false
+  volumes: []
+  stream_output: true
+  privileged: false
+  _block_document_id: 1bea9198-bd60-458d-9fda-41bf11a7f88f
+  _block_document_name: testflow2
+  _is_anonymous: false
+  _block_type_slug: docker-container
+storage:
+  repository: https://github.com/Abrarlaghari/Prefect
+  reference: main
+  include_git_objects: true
+  _block_document_id: 3bd16430-393b-4f51-83c1-21b553b4dc5e
+  _block_document_name: testflowcode
+  _is_anonymous: false
+  _block_type_slug: github
+path: ''
+entrypoint: flows/example-flow-2.py:testFlow2
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties: {}
+  required: null
+  definitions: null
